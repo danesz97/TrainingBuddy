@@ -9,17 +9,18 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_TAG = MainActivity.class.getName();
+    EditText emailET;
+    EditText passwordET;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        emailET = findViewById(R.id.editTextTextEmailAddress);
+        passwordET = findViewById(R.id.editTextTextPassword);
     }
 
     public void login(View view) {
-        EditText email = findViewById(R.id.editTextTextEmailAddress);
-        EditText password = findViewById(R.id.editTextTextPassword);
-
-        Log.i(LOG_TAG, email.getText().toString() + " => " + password.getText().toString());
+        Log.i(LOG_TAG, emailET.getText().toString() + " => " + passwordET.getText().toString());
     }
 }
