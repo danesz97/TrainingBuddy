@@ -5,4 +5,9 @@
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
     <string name="password_confirmation">Password Confirmation</string>
+    <string name="profile">Profile</string>
+    <string name="history">History</string>
+    <string name="workout">Workout</string>
+    <string name="exercises">Exercises</string>
+    <string name="measure">Measure</string>
 </resources>
