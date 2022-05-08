@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if(task.isSuccessful()) {
-                        Log.i(LOG_TAG, "signInWithEmail:success");
+                        Log.d(LOG_TAG, "signInWithEmail:success");
                         FirebaseUser user = mAuth.getCurrentUser();
                         startTraining();
                     } else {

@@ -72,7 +72,7 @@ public class SignupActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Log.i(LOG_TAG, "User profile updated.");
+                                Log.d(LOG_TAG, "User profile updated.");
                                 startTraining();
                             }
                         }
@@ -93,7 +93,7 @@ public class SignupActivity extends AppCompatActivity {
                             updateDisplayname(email);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(LOG_TAG, "createUserWithEmail:failure", task.getException());
+                            Log.d(LOG_TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(SignupActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
 //                                updateUI(null);
