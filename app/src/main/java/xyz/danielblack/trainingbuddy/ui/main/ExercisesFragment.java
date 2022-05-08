@@ -18,4 +18,10 @@ public class ExercisesFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_exercises, container, false);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        requireActivity().setTitle("Exercise");
+    }
 }

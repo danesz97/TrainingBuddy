@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Objects;
+
 import xyz.danielblack.trainingbuddy.R;
 
 public class ProfileFragment extends Fragment {
@@ -17,5 +19,11 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        requireActivity().setTitle("Profile");
     }
 }
