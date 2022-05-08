@@ -8,4 +8,12 @@ public class User {
         this.mEmail = mEmail;
         this.mTotalNumberOfWorkouts = mTotalNumberOfWorkouts;
     }
+
+    public int getTotalNumberOfWorkouts() {
+        return mTotalNumberOfWorkouts;
+    }
+
+    public void setTotalNumberOfWorkouts(int mTotalNumberOfWorkouts) {
+        this.mTotalNumberOfWorkouts = mTotalNumberOfWorkouts;
+    }
 }
