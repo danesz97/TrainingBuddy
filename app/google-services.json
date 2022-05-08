@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "768135418275",
+    "project_id": "trainingbuddy-aad33",
+    "storage_bucket": "trainingbuddy-aad33.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:768135418275:android:f4065c08e1f5289a514a16",
+        "android_client_info": {
+          "package_name": "xyz.danielblack.trainingbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "768135418275-p07jd1aq6a4gpj4g7rmf1fv0dsp3buq6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "xyz.danielblack.trainingbuddy",
+            "certificate_hash": "ce981190315f5c6214f5acec93b176c659ce734f"
+          }
+        },
+        {
+          "client_id": "768135418275-atvu4c38k7m84vblnievn1f3m7ul2pds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdLnz9_QMJeCPPn5oDbbY1Q-XdTBANA9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "768135418275-atvu4c38k7m84vblnievn1f3m7ul2pds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
