@@ -3,6 +3,7 @@ package xyz.danielblack.trainingbuddy.ui.signup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 import xyz.danielblack.trainingbuddy.R;
 import xyz.danielblack.trainingbuddy.data.constants.Constants;
 import xyz.danielblack.trainingbuddy.ui.login.LoginActivity;
+import xyz.danielblack.trainingbuddy.ui.main.MainActivity;
 
 public class SignupActivity extends AppCompatActivity {
     private static final String LOG_TAG = SignupActivity.class.getName();
@@ -65,7 +67,7 @@ public class SignupActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(LOG_TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startTraining(user);
+                            startTraining();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(LOG_TAG, "createUserWithEmail:failure", task.getException());
@@ -77,8 +79,10 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 
-    public void startTraining(FirebaseUser user) {
-
+    public void startTraining() {
+        Intent switchToMainActivity = new Intent(this, MainActivity.class);
+        switchToMainActivity.putExtra("SECRET_KEY", 1347866486);
+        startActivity(switchToMainActivity);
     }
 
 
