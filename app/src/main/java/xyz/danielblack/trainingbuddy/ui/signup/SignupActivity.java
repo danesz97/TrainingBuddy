@@ -11,13 +11,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+
+import java.util.HashMap;
+import java.util.Map;
 
 import xyz.danielblack.trainingbuddy.R;
 import xyz.danielblack.trainingbuddy.data.constants.Constants;
+import xyz.danielblack.trainingbuddy.data.model.User;
 import xyz.danielblack.trainingbuddy.ui.login.LoginActivity;
 import xyz.danielblack.trainingbuddy.ui.main.MainActivity;
 
@@ -31,6 +39,7 @@ public class SignupActivity extends AppCompatActivity {
     private EditText mPasswordConfirmET;
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore mDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +62,7 @@ public class SignupActivity extends AppCompatActivity {
             finish();
         }
         mAuth = FirebaseAuth.getInstance();
+        mDb = FirebaseFirestore.getInstance();
     }
 
     private void updateDisplayname(String email) {
@@ -73,6 +83,23 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 
+    private void addToDataBase(Map<String, Object> user) {
+        mDb.collection("users")
+                .add(user)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        Log.d(LOG_TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(LOG_TAG, "Error adding document", e);
+                    }
+                });
+    }
+
     public void signup(View view) {
         String email = mEmailET.getText().toString();
         String pass = mPasswordET.getText().toString();
@@ -83,6 +110,10 @@ public class SignupActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(LOG_TAG, "createUserWithEmail:success");
                             updateDisplayname(email);
+                            Map<String, Object> user = new HashMap<>();
+                            user.put("email", email);
+                            user.put("numberOfWorkouts", 0);
+                            addToDataBase(user);
                         } else {
                             Log.d(LOG_TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(SignupActivity.this, "Authentication failed.",
