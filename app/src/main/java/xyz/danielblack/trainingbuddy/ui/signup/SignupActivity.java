@@ -16,6 +16,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+
+import java.util.Objects;
 
 import xyz.danielblack.trainingbuddy.R;
 import xyz.danielblack.trainingbuddy.data.constants.Constants;
@@ -56,6 +59,27 @@ public class SignupActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
     }
 
+    private void updateDisplayname(String email) {
+        FirebaseUser user = mAuth.getCurrentUser();
+        int at = email.indexOf('@');
+        String nickname = email.substring(0, at);
+        UserProfileChangeRequest profileUpdate = new UserProfileChangeRequest.Builder()
+                .setDisplayName(nickname)
+                .build();
+        if (user != null) {
+            user.updateProfile(profileUpdate)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Log.i(LOG_TAG, "User profile updated.");
+                                startTraining();
+                            }
+                        }
+                    });
+        }
+    }
+
     public void signup(View view) {
         String email = mEmailET.getText().toString();
         String pass = mPasswordET.getText().toString();
@@ -66,8 +90,7 @@ public class SignupActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(LOG_TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            startTraining();
+                            updateDisplayname(email);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(LOG_TAG, "createUserWithEmail:failure", task.getException());
@@ -76,6 +99,10 @@ public class SignupActivity extends AppCompatActivity {
 //                                updateUI(null);
                         }
                     });
+
+
+//            FirebaseUser user = mAuth.getCurrentUser();
+
         }
     }
 
