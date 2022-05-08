@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginActivity">
+    tools:context=".ui.signup.SignupActivity">
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
+        android:layout_marginBottom="192dp"
         android:autofillHints="emailAddress,username"
-        android:ems="10"
+        android:ems="20"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
@@ -23,11 +23,11 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
+        android:layout_marginBottom="128dp"
         android:autofillHints="password"
-        android:ems="10"
+        android:ems="20"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:minHeight="48dp"
@@ -38,31 +38,17 @@
         app:layout_constraintVertical_bias="0.194" />
 
     <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
-        android:onClick="login"
-        android:ems="15"
-        android:text="@string/login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        tools:ignore="UsingOnClickInXml" />
-
-    <Button
         android:id="@+id/signupBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="224dp"
-        android:ems="15"
+        android:layout_marginBottom="128dp"
         android:onClick="signup"
+        android:ems="15"
         android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
         tools:ignore="UsingOnClickInXml" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
