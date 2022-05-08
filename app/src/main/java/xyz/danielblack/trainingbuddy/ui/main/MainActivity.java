@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Profile").setIcon(R.drawable.ic_profile));
         tabLayout.addTab(tabLayout.newTab().setText("History").setIcon(R.drawable.ic_history));
         tabLayout.addTab(tabLayout.newTab().setText("Workout").setIcon(R.drawable.ic_workout));
-        tabLayout.addTab(tabLayout.newTab().setText("Exercise").setIcon(R.drawable.ic_exercises));
-        tabLayout.addTab(tabLayout.newTab().setText("Measure").setIcon(R.drawable.ic_measure));
+//        tabLayout.addTab(tabLayout.newTab().setText("Exercise").setIcon(R.drawable.ic_exercises));
+//        tabLayout.addTab(tabLayout.newTab().setText("Measure").setIcon(R.drawable.ic_measure));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

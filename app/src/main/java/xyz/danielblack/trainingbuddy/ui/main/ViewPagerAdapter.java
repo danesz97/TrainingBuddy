@@ -22,16 +22,16 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new HistoryFragment();
             case 2:
                 return new WorkoutFragment();
-            case 3:
-                return new ExercisesFragment();
-            case 4:
-                return new MeasureFragment();
+//            case 3:
+//                return new ExercisesFragment();
+//            case 3:
+//                return new MeasureFragment();
         }
         return new ProfileFragment();
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return 3;
     }
     }
